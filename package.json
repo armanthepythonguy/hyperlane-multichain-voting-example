@@ -1,0 +1,5 @@
+{
+  "dependencies": {
+    "@hyperlane-xyz/sdk": "^1.4.2"
+  }
+}
