@@ -52,7 +52,7 @@ contract VoteMain {
     // Internal voting function which holds the voting logic
     function _vote(uint256 _proposalId, address _voter, Vote _voteType) internal{
         require(proposals[_proposalId].createdTimestamp != 0, "Proposal doesn't exist !!!");
-        require(proposals[_proposalId].createdTimestamp + proposals[_proposalId].votingPeriod <= block.timestamp, "Voting period already ended !!!");
+        require(proposals[_proposalId].createdTimestamp + proposals[_proposalId].votingPeriod >= block.timestamp, "Voting period already ended !!!");
         require(!votes[_voter][_proposalId], "Voter already voted !!!");
         if(_voteType == Vote.FOR){
             proposals[_proposalId].forVotes += 1;
